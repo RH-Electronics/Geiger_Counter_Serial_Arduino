@@ -1,0 +1,34 @@
+Here is a list of Operational Check radiation sources and GM tubes I
+have tested.
+
+My current preferred "point source" is an inexpensive standalone Fire
+Alarm ionization chamber from from http://www.ebay.com/itm/112433372640
+used as received.  Do not remove the aluminum cover.
+
+These devices each contain about 1 uCi (micro Curie) of Americium.
+Americium is a strong alpha emitter to run the alarm's ionization
+chamber, but alpha particles cannot pass thru the aluminum housing.
+Fortunately Americium decay also emits some Beta radiation, enough in
+fact to average about 150 CPM (+|- 5%) using a Beta/Gamma GM tube such
+as the Russian STS-5.
+
+Note that different GM tubes have different sensitivities, to different
+types of radiation.  Cross-calibration of different GM tubes is not
+possible.
+
+Other inexpensive OpCheck sources include:
+
+- Thoriated (2%) TIG welding rods (end is painted RED), available
+at welding supply shops, $35 for a pack of 10, but usually much more
+expensive in single quantity.  Other types of TIG Rods that are painted
+other colors are NOT radioactive.  Average about 600 CPM with an STS-5
+GM tube.
+
+- Vintage Thoriated gas lamp mantles, generally not available in stores,
+but some folks sell them on ebay for $15 and up.  Average about 4000
+CPM with an STS-5 GM tube.
+
+Note that these are not "point sources" and will result in different
+CPM averages depending on the length/area measured (sample size & GM
+tube used).
+

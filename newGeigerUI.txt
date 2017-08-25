@@ -1,0 +1,97 @@
+/*
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+New Geiger User Interface Documentation
+
+/BriefCase $Revision: 1.7.2.6 $  $Name: RHelec-01_dmk $
+
+by Dave Knight
+
+newGeiger offers two UIs, one via the serial port and the other via the
+LCD Shield push buttons:
+
+1 - Serial UI - on startup, a usage message is displayed to the serial port
+(9600 baud, N81):
+
+Usage: command [arg1]
+ Commands:
+  h,? - help
+  show - settings
+  reset - set defaults
+  calFactor [v]
+   where: v = factor
+  When v omitted, set default
+  SAVE - to EEPROM
+  d - dbug on/off
+  p - plot on/off
+
+This message will appear whenever you start the Arduino IDE Serial
+monitor because that resets/reboots the Arduino.
+
+Changes are effective immediately, but are not permanent, unless SAVEd
+to EEPROM.  Whenever the Arduino is restarted, calFactor will be set to
+the values last saved to EEPROM.  On startup, dbug is OFF and plot is ON.
+
+The default settings (as opposed to the values saved in EEPROM) are:
+
+   calFactor  1.0
+
+See the newGeiger.ino source for details on using calFactor.  It is NOT
+intended to cross-calibrate different GM tubes!
+
+The dbug setting controls dbug output for developers. When set to 1,
+enhanced debugging info is presented to both the serial port.  When the
+lcd UI is active, the top lcd line displays push-button hits.  In
+production releases, dbug output is minimal.
+
+The plot setting controls plot data output to the serial port, to drive
+the Arduino IDE Serial Plotter feature. As of Rel-0_4, the instantaneous
+CPM and the 60 second average CPM are plotted.  To arrive at an accurate
+average CPM for any specific sample or environment, readings must be
+taken for a full minute.
+
+2 - LCD Push Button UI
+
+Activate the LCD push button UI by pressing SELECT on the LCD Shield.
+The normal CPM display is replaced by:
+
+   Configuration UI
+   Show Settings
+
+where "Show Settings" is the 1st menu item and is analogous to the "show"
+command in the serial UI.
+
+Press SELECT to show the current settings, or press UP or DOWN to scroll
+thru the menus:
+
+   Show Settings
+   Set Defaults
+   Set calFactor
+   SAVE settings
+   Done, EXIT UI
+   Toggle dbug
+   Toggle plot
+
+EXIT the lcd UI at any time by pressing the LEFT button.
+
+On exiting the lcd UI, the normal display:
+
+  cpm <number>/ <average>
+  mR/h: <number>  <mSv/h>
+
+is restored.
+
+Note that the serial UI, lcd UI and normal counting tasks run
+concurrently.
